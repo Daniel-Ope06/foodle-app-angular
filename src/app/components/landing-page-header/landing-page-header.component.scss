@@ -1,0 +1,59 @@
+$headerRed    : hsla(342, 94%, 73%, 0.5);
+$headerYellow : hsla(51, 97%, 63%, 0.5);
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+$tabletSize  : 1000px;
+$brandFont   : "Brush Script MT", cursive;
+
+
+.header-background{
+    background: url("https://images.unsplash.com/photo-1500338427510-5deb175987d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80") no-repeat center center fixed;
+    background-color: $headerYellow;
+    background-image:   linear-gradient(315deg, $headerYellow 0%, $headerRed 74%), url("https://images.unsplash.com/photo-1500338427510-5deb175987d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80");
+    display: table;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+}
+
+.heading{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding-bottom: 3.5rem;
+
+    h1{
+        font-size: 1000%;
+        font-weight: 550;
+        font-family: "Brush Script MT", 'cursive';
+    }
+    h3{
+        font-size: 500%;
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    .btn{
+        font-size: 300%;
+        font-weight: 300;
+        text-transform: uppercase;
+        padding: 1rem 2rem;
+        margin: auto;
+        margin-top: 2rem;
+        border-radius: 5rem;
+        border: none;
+        display: inline-block;
+        color: $brandBlack;
+        background-color: $brandRed;
+    }
+
+    .btn:hover{
+        background-color: $brandRed;
+        color: $brandYellow;
+      }
+}
+
+

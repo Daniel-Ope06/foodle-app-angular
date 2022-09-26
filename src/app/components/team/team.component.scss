@@ -1,0 +1,46 @@
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+$tabletSize  : 1000px;
+$cardSpace : 16px;
+
+.grid-container {
+    display: grid;
+    grid-gap: $cardSpace;
+    grid-template-columns: auto auto auto auto;
+    margin: $cardSpace;
+
+    @media (max-width: 768px){
+        grid-template-columns: auto;
+    }
+
+    .card{
+        box-shadow: 0px 2px 5px $brandRed;
+        overflow: hidden;
+        border-radius: 15px;
+
+        .card-title{
+            color: $brandBlack;
+            font-weight: bold;
+            font-size: 23px;
+        }
+
+        .role{
+            color: $brandRed;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+        .social-media .fab{
+            font-size: 25px;
+            color: $brandRed;
+            padding: 0 5px;
+        }
+
+        .social-media .fab:hover{
+            color: $brandBlue; 
+        }
+    }
+}

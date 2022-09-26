@@ -1,0 +1,41 @@
+$headerRed    : hsla(342, 94%, 73%, 0.5);
+$headerYellow : hsla(51, 97%, 63%, 0.5);
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+$tabletSize  : 1000px;
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    .left{
+        background-color: $headerYellow;
+        background-image:   linear-gradient(315deg, $headerYellow 0%, $headerRed 74%), 
+        url("./aboutImg.jpg");
+        background-size: cover;
+        background-position: 0px 0px, 70% 50%;
+        background-attachment: scroll, scroll;
+        min-height: 750px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .right{
+        h1{
+            margin-top: 50px;
+            text-align: left;
+            color: $brandRed;
+            padding: 1rem 5rem 1rem 5rem;
+        }
+
+        p{
+            margin-top: 15px;
+            text-align: justify;
+            padding: 1rem 5rem 1rem 5rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+$brandRed    : #A84B5D;
+$brandYellow : #F6EFA6;
+$brandBlack  : #2E2F2F;
+$brandBlue   : #759FBC;
+
+footer{
+    /*position: fixed;
+    bottom: 0;*/
+    width: 100%;
+    background: $brandRed;
+    background: -webkit-linear-gradient(top left, $brandRed, $brandYellow);
+    background: -moz-linear-gradient(top left, $brandRed, $brandYellow);
+    background: linear-gradient(to bottom right, $brandRed, $brandYellow);
+    padding: 2% 2% 2% 2%;
+    color: $brandBlack;
+
+    .footer-header{
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .icon{
+        padding: 15px;
+        font-size: 50px;
+        color: $brandRed;
+        padding: 0 25px;
+    }
+
+    .icon:hover{
+        color: $brandBlue;
+        text-decoration: none;
+    }
+}

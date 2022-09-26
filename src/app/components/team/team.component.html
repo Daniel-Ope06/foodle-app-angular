@@ -1,0 +1,15 @@
+<div class="grid-container">
+    <div class="grid-item card" *ngFor="let member of team; let i=index">
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile">
+        <div class="card-body">
+          <h5 class="card-title">{{ member.name + " " + (i+1)}}</h5>
+          <h6 class="role">{{ member.role + " " + (i+1)}}</h6>
+          <p class="card-text">{{ member.content }}</p>
+          <div class="social-media">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-linkedin"></i>
+            <i class="fab fa-twitter-square"></i>
+          </div>
+        </div>
+    </div>
+</div>

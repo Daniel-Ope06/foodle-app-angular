@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav me-auto ms-auto">
                 <!-- looping through navbar links -->
-                <a *ngFor="let link of navbarLinks" class="nav-link" [class]="link.isActive? 'active' : ''" [routerLink]="[link.routerLink]">{{ link.label }}</a>
+                <a *ngFor="let link of navbarLinks" class="nav-link" [routerLinkActive]="['active']" [routerLink]="[link.routerLink]">{{ link.label }}</a>
             </div>
         </div>
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Database } from '@angular/fire/database';
+import { Food } from 'src/app/models/food.model';
+import { FoodDB } from 'src/app/services/foodDB.service';
 
 @Component({
   selector: 'app-menu',
@@ -56,7 +59,26 @@ export class MenuComponent implements OnInit {
     {title: "Fruit", items: this.fruit},
   ];
 
-  constructor() { }
+  menuDB: Food[];
+  breakfastDB: Food[];
+  brunchDB: Food[];
+  lunchDB: Food[];
+  fruitDB: Food[];
+
+  constructor(public database: Database) {
+    this.menuDB = FoodDB.getAllFoods(this.database);
+    console.log(this.menuDB)
+    this.breakfastDB = this.menuDB.filter((v: Food) => v.category === "breakfast");
+    this.brunchDB = this.menuDB.filter((v: Food) => v.category === "brunch");
+    this.lunchDB = this.menuDB.filter((v: Food) => v.category.localeCompare("lunch") == 0);
+    this.fruitDB = this.menuDB.filter((v: Food) => v.category === "fruit");
+
+    FoodDB.addMeal(this.breakfast, this.breakfastDB, this.breakfastImg);
+    FoodDB.addMeal(this.brunch, this.brunchDB, this.brunchImg);
+    FoodDB.addMeal(this.lunch, this.lunchDB, this.lunchImg);
+    FoodDB.addMeal(this.fruit, this.fruitDB, this.fruitImg);
+    //this.lunch.push({name: "Fruit", cost: "₦100", content: this.mealDescription, img: this.fruitImg})
+  }
 
   ngOnInit(): void {
   }

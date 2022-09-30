@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "foodle-app-ope": {
+      "hosting": {
+        "Foodle-app": [
+          "foodle-app-ope"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "foodle-app-ope"
+  }
+}

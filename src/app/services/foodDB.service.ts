@@ -1,4 +1,6 @@
 import { Database, ref, get, set, update, remove, query, orderByChild } from '@angular/fire/database';
+import { Food } from '../models/food.model';
+import { MealDisplay } from 'src/app/models/meal-display.model';
 
 export class FoodDB{
     public static getFoodSection(db: Database, section: string){
@@ -12,7 +14,7 @@ export class FoodDB{
         let mealDescription: string = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo";
         let imgLink: string;
 
-        let arr: { name: string; cost: string; content: string; img: string; }[] = [];
+        let arr: MealDisplay[] = [];
 
         if (section === "breakfast"){
           arr = [
@@ -77,5 +79,30 @@ export class FoodDB{
           console.error(error);
         });
         return arr;
+    }
+
+    public static addToCartDB(db: Database, meal: MealDisplay): void{
+      const foodID: string = meal.name;
+      set(ref(db, `cart/${foodID}`), {
+          name: meal.name,
+          cost : meal.cost,
+          img: meal.img
+        });
+    }
+
+    public static getCartDB(db: Database): MealDisplay[]{
+      let arr: MealDisplay[] = [];
+      get(ref(db, 'cart')).then((snapshot) => {
+        if (snapshot.exists()) {
+          snapshot.forEach(element =>{
+            arr.push(element.val());
+          });
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+      return arr;
     }
 }

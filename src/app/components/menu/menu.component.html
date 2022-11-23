@@ -9,7 +9,7 @@
                 <h5 class="card-title">{{ meal.name }}</h5>
                 <h6 class="cost">{{ meal.cost }}</h6>
                 <p class="card-text">{{ meal.content }}</p>
-                <button type="button" class="btn btn-color btn-lg" data-bs-toggle="modal" data-bs-target="#myModal1">Add to cart</button>
+                <button type="button" class="btn btn-color btn-lg" (click)="addToCart(meal)">Add to cart</button>
             </div>
         </div>
     </div>

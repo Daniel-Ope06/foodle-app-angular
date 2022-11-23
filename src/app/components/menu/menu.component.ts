@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Database } from '@angular/fire/database';
 import { Food } from 'src/app/models/food.model';
 import { FoodDB } from 'src/app/services/foodDB.service';
-//[src]=meal.img
+import { MealDisplay } from 'src/app/models/meal-display.model';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -10,11 +11,11 @@ import { FoodDB } from 'src/app/services/foodDB.service';
 })
 
 export class MenuComponent implements OnInit {
-  breakfastMenu: { name: string; cost: string; content: string; img: string; }[];
-  brunchMenu: { name: string; cost: string; content: string; img: string; }[];
-  lunchMenu: { name: string; cost: string; content: string; img: string; }[];
-  fruitMenu: { name: string; cost: string; content: string; img: string; }[];
-  mealSections: {title: string, items: { name: string; cost: string; content: string; img: string; }[]}[];
+  breakfastMenu: MealDisplay[];
+  brunchMenu: MealDisplay[];
+  lunchMenu: MealDisplay[];
+  fruitMenu: MealDisplay[];
+  mealSections: {title: string, items: MealDisplay[]}[];
 
   constructor(public database: Database) {
     this.breakfastMenu = FoodDB.getFoodSection(this.database, "breakfast");
@@ -31,5 +32,9 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  addToCart(meal: MealDisplay): void{
+    FoodDB.addToCartDB(this.database, meal);
   }
 }

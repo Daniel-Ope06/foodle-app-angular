@@ -16,6 +16,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { CartPopupComponent } from './components/cart-popup/cart-popup.component';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,12 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     AboutComponent,
     ServicesComponent,
     ContactComponent,
+    CartPopupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatDialogModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase())
   ],
